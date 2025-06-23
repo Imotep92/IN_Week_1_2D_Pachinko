@@ -5,22 +5,33 @@ public class RandomSpawn : MonoBehaviour
 {
     Vector2 randomPosition;
     public float xRange = 5f;
-    public float yRange = 0.5f;
+    public float yRange;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        float xPosition = Random.Range(0 - xRange, 0 + xRange);
-        float yPosition = Random.Range(1 - yRange, 1 + yRange);
+        //pick random xPosition
+        float xPosition = Random.Range( -3 - xRange, 8 + xRange);
+
+        //static yPosition
+        float yPosition = 1f;
+       
+        // new Vector2 position chosen 
         randomPosition = new Vector2(xPosition, yPosition);
+
+        //place player in new position
         transform.position = randomPosition;
         
     }
 
     // Update is called once per frame
-    void Update()
+    void Update()  
     {
-        if(Input.GetKey(KeyCode.Space))
+
+        //put this into a restart method
+        // put in a cooldown to stop player from spamming the spacebar
+
+        if (Input.GetKey(KeyCode.Space))
         {
             SceneManager.LoadScene(0);
         }
