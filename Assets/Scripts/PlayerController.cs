@@ -1,12 +1,9 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-
-
-public class Playercontrol : MonoBehaviour
-{
-    // Make Playercontrol script accessible from other scripts
-    private static Playercontrol PlayerControlScript;
+public class PlayerController : MonoBehaviour
+{// Make Playercontrol script accessible from other scripts
+    private static PlayerController PlayerControllerScript;
 
     // Access to 'GameManager' gameObject
     private GameManager gameManager;
@@ -58,6 +55,11 @@ public class Playercontrol : MonoBehaviour
 
     void RespawnPlayerOrb()
     {
+
+        //only respawn if player object is destroyed
+
+
+
         //pick random xPosition
         float xPosition = Random.Range(-3 - xRange, 8 + xRange);
 
@@ -101,4 +103,3 @@ public class Playercontrol : MonoBehaviour
         yield return new WaitForSeconds(coolDown);
         isCoolDown = false;
     }*/
-
