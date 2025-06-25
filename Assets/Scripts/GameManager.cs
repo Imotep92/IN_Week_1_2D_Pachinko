@@ -1,45 +1,30 @@
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
-    // Make GameManager script accessible from other scripts
-    private static GameManager gameManagerScript;
+    // Make Playercontrol script accessible from other scripts
+    private PlayerController PlayerControllerScript;
 
-    // Access to TitlePanel UI GameObject
-    public GameObject titlePanel;
+    // Access to TitlePanel UI, InfoPanel UI, PausePanel UI, GameOverPanel UI  GameObjects
+    [SerializeField] GameObject titlePanel, infoPanel, pausePanel, gameOverPanel; 
 
-    // Access to PausePanel UI GameObject
-    public GameObject pausePanel;
-
-    // Access to GameOverPanel UI GameObject
-    public GameObject gameOverPanel;
-
-    private Button button;
 
     // Is the game in play?
-    private bool isGameInPlay = true;
+    private bool isGameInPlay = true; 
 
 
+    //private bool gameIsOver = false;
 
+    
+    //private bool playerHasLost = false;
 
-    //game is over bool
+   
 
-    //player has won bool
-
-    //player has lost bool
-
-    //pause is active
-
-    //player spawn object
-
-    //score text
-
-    //player health int
-
-
+    
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -50,22 +35,37 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (isGameInPlay)
+        {
+            // Find the 'PlayerControllerscript' in the 'Player_Orb' Game Object
+            PlayerControllerScript = GameObject.Find("Player_Orb").GetComponent<PlayerController>();
 
+            // Find the 'PlayerInput()' within the 'PlayerControllerscript' 
+            PlayerControllerScript.PlayerInput();
 
-        //get 'Button' component
-        // button = GetComponent<Button>();
+            //pausing the game
+            if (Input.GetKeyDown(KeyCode.Escape))
+            {
+                PauseGame();
+            }
+        }
 
-        //if start button is clicked, start game 
-        // button.onClick.AddListener(StartGame);
-
-        // if the game is paused
-
-        //if the game is over and player has LOST
-
-        // if the game is over the and the player has WON
-
-        // if the application has been quit
-
+        /*
+        if(gameIsOver && playerHasLost)
+        {
+            Debug.log(" You have lost... ");
+            isGameInPlay = false
+            playerLostPanel.SetActive(true);
+            Time.timeScale = 0f;
+        } 
+        
+        else if(gameIsOver && !playerHasLost)
+        {
+            Debug.log("You won!")
+            isGameInPlay = false
+            playerWonPanel.SetActive(true);
+            Time.timeScale = 0f;
+        }*/
     }
 
     /// <summary>
@@ -84,41 +84,49 @@ public class GameManager : MonoBehaviour
         Time.timeScale = 0f;
     }
 
-
-
-    public void StartGame()  // Start game method
+    public void StartGame()  // upon start button press, moves player to the info panel
     {
-        // Has the game started
-        isGameInPlay = true;
-
         // Set Title Panel to false
         titlePanel.gameObject.SetActive(false);
 
+        //Set Info Panel to true
+        infoPanel.gameObject.SetActive(true);
+    }
+
+    public void PlayGame() // Upon pressing 'start game'
+    {
+        //Has the game started
+        isGameInPlay = true;
+
+        //Set Info Panel to true
+        infoPanel.gameObject.SetActive(false);
+
         //Timescale set to 1
         Time.timeScale = 1f;
+  
+        //instantiate orb with respawn methods in player controller
     }
 
-    void PauseGame()
+    void PauseGame() // 'PauseGame' Method
     {
-        if (Input.GetKeyDown(KeyCode.Escape))
-        {
-            
-        }
-
-        // Get Active pause panel UI true
+        // Set Title Panel to true
+        pausePanel.gameObject.SetActive(true);
 
         // Timescale set to 0f
+        Time.timeScale = 0f;
     }
 
-    void ResumeGame()
+    public void ResumeGame() // 'ResumeGame' Method
     {
-        // Get Active pause panel UI false
+        // Set Pause Panel to true
+        pausePanel.gameObject.SetActive(false);
 
-        // timescale set to 1f
+        // Timescale set to 0f
+        Time.timeScale = 1f; 
     }
 
     void QuitGame()
     {
-        // Quit application
+        // Debug.log("Quit application")
     }
 }

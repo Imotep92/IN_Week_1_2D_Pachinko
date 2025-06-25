@@ -2,11 +2,9 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
-{// Make Playercontrol script accessible from other scripts
-    private static PlayerController PlayerControllerScript;
-
-    // Access to 'GameManager' gameObject
-    private GameManager gameManager;
+{   
+    // Make GameManager script accessible from other scripts
+    private GameManager gameManagerScript;
 
     // Access to player orb
     public Rigidbody2D playerOrbRb;
@@ -24,21 +22,13 @@ public class PlayerController : MonoBehaviour
     float yPosition = 1f;
 
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    // Player input for the player orb
+    public void PlayerInput()
     {
-        // initialise access to GameManager.cs through the 'GameManager' GameObject  
-        gameManager = GameObject.Find("Game_Manager").GetComponent<GameManager>();
-
-        // intialise access to Rigidbody2D component of player orb
         playerOrbRb = GetComponent<Rigidbody2D>();
-    }
 
-    // Update is called once per frame
-    void Update()
-    {
-        // Get 'PlayerInput' method
-        PlayerInput();
+        // Apply force to Player orb along horizontal axis
+        playerOrbRb.AddForce(Vector2.right * Input.GetAxisRaw("Horizontal") * speed);
 
         if (Input.GetKey(KeyCode.Space))
         {
@@ -46,19 +36,9 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    // Player input for the player orb
-    void PlayerInput()
-    {
-        // Apply force to Player orb along horizontal axis
-        playerOrbRb.AddForce(Vector2.right * Input.GetAxisRaw("Horizontal") * speed);
-    }
-
     void RespawnPlayerOrb()
     {
-
         //only respawn if player object is destroyed
-
-
 
         //pick random xPosition
         float xPosition = Random.Range(-3 - xRange, 8 + xRange);
