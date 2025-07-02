@@ -37,12 +37,28 @@ public class GameManager : MonoBehaviour
     {
         if (isGameInPlay)
         {
+
+            //instantiate player health
+
+            //give access to player health script
+
+            //instantiate enemy health
+
+            //give access to enemy health script
+
+
+
+
+
+            
+
             // Find the 'PlayerControllerscript' in the 'Player_Orb' Game Object
             PlayerControllerScript = GameObject.Find("Player_Orb").GetComponent<PlayerController>();
 
             // Find the 'PlayerInput()' within the 'PlayerControllerscript' 
             PlayerControllerScript.PlayerInput();
 
+            
             //pausing the game
             if (Input.GetKeyDown(KeyCode.Escape))
             {
@@ -84,7 +100,7 @@ public class GameManager : MonoBehaviour
         Time.timeScale = 0f;
     }
 
-    public void StartGame()  // upon start button press, moves player to the info panel
+    public void StartGame()  // BUTTON upon start button press, moves player to the info panel
     {
         // Set Title Panel to false
         titlePanel.gameObject.SetActive(false);
@@ -93,7 +109,7 @@ public class GameManager : MonoBehaviour
         infoPanel.gameObject.SetActive(true);
     }
 
-    public void PlayGame() // Upon pressing 'start game'
+    public void PlayGame() // BUTTON Upon pressing 'start game'
     {
         //Has the game started
         isGameInPlay = true;
@@ -116,7 +132,7 @@ public class GameManager : MonoBehaviour
         Time.timeScale = 0f;
     }
 
-    public void ResumeGame() // 'ResumeGame' Method
+    public void ResumeGame() // BUTTON 'ResumeGame' Method
     {
         // Set Pause Panel to true
         pausePanel.gameObject.SetActive(false);

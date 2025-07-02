@@ -19,7 +19,7 @@ public class PlayerController : MonoBehaviour
     public float xRange = 5f;
 
     // static yPosition
-    float yPosition = 1f;
+    float yPosition = - 0.5f;
 
 
     // Player input for the player orb
