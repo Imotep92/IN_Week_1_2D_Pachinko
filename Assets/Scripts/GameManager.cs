@@ -10,7 +10,7 @@ public class GameManager : MonoBehaviour
     private PlayerController PlayerControllerScript;
 
     // Access to TitlePanel UI, InfoPanel UI, PausePanel UI, GameOverPanel UI  GameObjects
-    [SerializeField] GameObject titlePanel, infoPanel, pausePanel, gameOverPanel; 
+    [SerializeField] GameObject titlePanel, infoPanel, pausePanel, gamePanel, gameOverPanel; 
 
 
     // Is the game in play?
@@ -114,8 +114,11 @@ public class GameManager : MonoBehaviour
         //Has the game started
         isGameInPlay = true;
 
-        //Set Info Panel to true
+        //Set Info Panel to false
         infoPanel.gameObject.SetActive(false);
+
+        //Set Game Panel to true
+        gamePanel.gameObject.SetActive(true);
 
         //Timescale set to 1
         Time.timeScale = 1f;
