@@ -4,31 +4,41 @@ using System.Collections;
 using System.Collections.Generic;
 
 public class PlayerController : MonoBehaviour
-{   
-    // Make GameManager script accessible from other scripts
-    private GameManager gameManagerScript;
+{
+    [Header("Scripts")]
+    public static GameManager gameManagerScript; // Make GameManager script accessible from other scripts
+    public static PlayerController playerControllerScript; // Make PlayerController script accessible from other scripts
 
-    // Access to player orb
-    public Rigidbody2D playerOrbRb;
 
-    // Speed of falling player orb
-    private float speed = 0.85f;
+    [Header("Player position variables")]
+    public Rigidbody2D playerOrbRb; // Access to player orb
+    private float speed = 0.85f; // Speed of falling player orb
+    Vector2 randomPosition; //Vector2 random position variable
+    public float xRange = 5f; // xRange coordinates to create xPosition
+    float yPosition = -0.5f; // static yPosition
 
-    //Vector2 random position variable
-    Vector2 randomPosition;
+    public void Awake()
+    {
+        if (playerControllerScript != null && playerControllerScript != this)
+        {
+            Destroy(gameObject);
+        }
+        else
+        {
+            playerControllerScript = this;
+        }
+    }
 
-    // xRange coordinates to create xPosition
-    public float xRange = 5f;
-
-    // static yPosition
-    float yPosition = - 0.5f;
+    void Start()
+    {
+        playerOrbRb = GetComponent<Rigidbody2D>();
+        
+    }
 
 
     // Player input for the player orb
     public void PlayerInput()
     {
-        playerOrbRb = GetComponent<Rigidbody2D>();
-
         // Apply force to Player orb along horizontal axis
         playerOrbRb.AddForce(Vector2.right * Input.GetAxisRaw("Horizontal") * speed);
 
@@ -55,6 +65,11 @@ public class PlayerController : MonoBehaviour
     // attack method of the wizard/player
     void MagicSpell()
     {
+    }
+
+    public void OnTriggerEnter2D(Collider2D collision)
+    {
+        // destroy playerorb upon contact with endzones
     }
 }
 
