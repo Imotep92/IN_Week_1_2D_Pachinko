@@ -6,7 +6,7 @@ public class GameManager : MonoBehaviour
 {
     [Header ("Scripts")]
     public static GameManager gameManagerScript { get; private set; }
-    public static PlayerController playerControllerScript;
+    public static PlayerOrbController playerControllerScript;
     public static HealthScript healthScript;
 
     public string transitionedFromScene;

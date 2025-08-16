@@ -3,7 +3,7 @@ using UnityEngine;
 public class HealthScript : MonoBehaviour
 {
     [Header("Scripts")]
-    public static PlayerController playerController;
+    public static PlayerOrbController playerController;
     public static HealthScript healthScript;
 
 

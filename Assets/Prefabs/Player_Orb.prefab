@@ -12,7 +12,8 @@ GameObject:
   - component: {fileID: 376926741194714408}
   - component: {fileID: 3716498042725463689}
   - component: {fileID: 3500917663594643911}
-  - component: {fileID: 5797303500896943592}
+  - component: {fileID: 1433040342573975514}
+  - component: {fileID: 5628400521812241517}
   m_Layer: 0
   m_Name: Player_Orb
   m_TagString: Player
@@ -153,7 +154,24 @@ CircleCollider2D:
   m_CompositeOrder: 0
   m_Offset: {x: 0.01625498, y: 0}
   m_Radius: 1.4102844
---- !u!114 &5797303500896943592
+--- !u!114 &1433040342573975514
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3876694006655284685}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 115d43b12cae549b1b1bfb1d941f77d0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isAlive: 1
+  isKinematic: 1
+  inPlay: 0
+  isDestroyed: 0
+  isDead: 0
+--- !u!114 &5628400521812241517
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -165,5 +183,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f33164ed1608c42b1aabd88c9d88167e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerOrbRb: {fileID: 3716498042725463689}
-  xRange: 5
+  pState: {fileID: 0}
+  playerOrbRb: {fileID: 0}
