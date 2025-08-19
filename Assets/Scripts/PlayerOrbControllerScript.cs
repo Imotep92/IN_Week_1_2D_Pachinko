@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 
 public class PlayerOrbController : MonoBehaviour
 {
@@ -13,7 +14,7 @@ public class PlayerOrbController : MonoBehaviour
 
     [Header("Player position variables")]
     public Rigidbody2D playerOrbRb; // Access to player orb
-    public GameObject playerOrb;
+    public GameObject playerOrbPrefab;
     private float speed = 1f; // Speed of falling player orb
     // Vector2 randomPosition; //Vector2 random position variable
 
@@ -23,11 +24,11 @@ public class PlayerOrbController : MonoBehaviour
     float yPosition = -0.5f; // static yPosition
     float xPosition = 2.5f;
 
+
+
     float minX = -8f;
     float maxX = 13f;
     static float t = 0.0f;
-
-
 
 
     public void Awake()
@@ -49,15 +50,11 @@ public class PlayerOrbController : MonoBehaviour
 
         startingPoint = new Vector2(xPosition, yPosition);
         playerOrbRb.constraints = RigidbodyConstraints2D.FreezePositionY;
-
-
-        
-
     }
 
     void Update()
     {
-        
+
         playerOrbRb.AddForce(Vector2.right * Input.GetAxisRaw("Horizontal") * speed);
 
         if (Input.GetKey(KeyCode.Space) && pState.isKinematic)
@@ -66,50 +63,14 @@ public class PlayerOrbController : MonoBehaviour
             playerOrbRb.constraints = RigidbodyConstraints2D.None;
             pState.isKinematic = false;
         }
-        else
-        {
-            LerpingSideToSide(); //try to stop lerping
-        }
-        
-
+      
     }
 
 
-    void LerpingSideToSide()
-    {
-        transform.position = new Vector2(Mathf.Lerp(minX, maxX, t), yPosition);
-        t += 0.5f * Time.deltaTime;
-
-        if (t > 1.0f)
-        {
-            float temp = maxX;
-            maxX = minX;
-            minX = temp;
-            t = 0.0f;
-        }
-    }
-
-    void RespawnPlayerOrb()
-    {
-        //only respawn if player object is destroyed
 
 
-        // float xPosition = Random.Range(-3 - xRange, 8 + xRange);
-        // randomPosition = new Vector2(xPosition, yPosition);
-        
-        destination = new Vector2(-8, yPosition);
-        transform.position = Vector2.Lerp(transform.position, destination, Time.deltaTime * speed);
-    }
 
-    void InitialPlayerOrbSpawn()
-    {
-        
-        //transform.position = startingPoint;
-    }
 
-   
-
-    
 
 
     // public void PlayerInput()
