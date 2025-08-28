@@ -40,10 +40,18 @@ public class PlayerOrbController : MonoBehaviour
     {
         playerOrbRb.AddForce(Vector2.right * Input.GetAxisRaw("Horizontal") * speed);
 
-        if (Input.GetKeyDown(KeyCode.K))
+    }
+
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.gameObject.CompareTag("You_Win_Tag"))
         {
             Destroy(gameObject);
-            Debug.Log("K is pressed");
+        }
+
+        if (other.gameObject.CompareTag("Game_Over_Flame"))
+        {
+            Destroy(gameObject);
         }
     }
 }

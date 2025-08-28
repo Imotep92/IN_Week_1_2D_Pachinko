@@ -6,14 +6,15 @@ TagManager:
   tags:
   - Game_Over_Flame
   - You_Win_Tag
+  - Peg
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Ground
   - Water
   - UI
-  - 
+  - Background
   - 
   - 
   - 
