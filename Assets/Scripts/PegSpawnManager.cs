@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public class PegSpawnManager : MonoBehaviour
@@ -6,9 +7,11 @@ public class PegSpawnManager : MonoBehaviour
     public static PegSpawnManager pegSpawnManagerScript;
 
 
-    public Transform[] pegSpawns;  // FIX, turn ARRAY into a LIST
+    public List<Transform> pegSpawns;  // FIX, turn ARRAY into a LIST
     [SerializeField] GameObject pegPrefab;
     private Vector2 currentSpawn;
+
+    private int randomIndex;
     public bool hasPeg;
 
 
@@ -27,51 +30,22 @@ public class PegSpawnManager : MonoBehaviour
 
     void Start()
     {
-        
-
-
-
-
-        // TODO: instatiate each peg onto a spawnpoint
-
-        // foreach (Vector2 currentspawn in GetComponent<Transform>)
-        // {
-        //     Instantiate(pegPrefab, currentSpawn, Quaternion.identity);
-        // }
-
-
-        // currentDestination = _wm.waypoints[Random.Range(0, _wm.waypoints.Length)].position;
+     
     }
 
-    void FixedUpdate()
+    void FixedUpdate()  // change method to a separate area as a for loop so when out of spawn points it continues
     {
-        currentSpawn = pegSpawnManagerScript.pegSpawns[Random.Range(0, pegSpawnManagerScript.pegSpawns.Length)].position;
-        
-         Instantiate(pegPrefab, currentSpawn, Quaternion.identity);
+        randomIndex = Random.Range(0, pegSpawnManagerScript.pegSpawns.Count);
 
-        // for (int i = 0; i < 1; i++)
-        // {
-        //     pegSpawns.RemoveAt(currentSpawn);
-        // } FIX, turn ARRAY into a LIST
-        
+        currentSpawn = pegSpawnManagerScript.pegSpawns[randomIndex].position;
+
+        Instantiate(pegPrefab, currentSpawn, Quaternion.identity);
+
+        pegSpawns.RemoveAt(randomIndex);
+
+        Debug.Log("all pegs spawned");
+  
     }
-
-    
-
-
-    /*
-    
-void SpawnPointPeg()
-{
-    for (int)
-
-
-    for (int i = 0; i < 20; i++)
-    {
-        Instantiate(pegPrefab, randomPos, Quaternion.identity)
-    }
-}
-*/
 
 }
 
