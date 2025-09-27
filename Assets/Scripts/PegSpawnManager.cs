@@ -11,8 +11,8 @@ public class PegSpawnManager : MonoBehaviour
     [SerializeField] GameObject pegPrefab;
     private Vector2 currentSpawn;
 
-    private int randomIndex;
-    public bool hasPeg;
+    private int firstIndex;
+    public bool hasPeg = false;
 
 
 
@@ -30,23 +30,34 @@ public class PegSpawnManager : MonoBehaviour
 
     void Start()
     {
-     
+        SpawnPegsLoop();
     }
 
-    void FixedUpdate()  // change method to a separate area as a for loop so when out of spawn points it continues
+    void FixedUpdate()  
     {
-        randomIndex = Random.Range(0, pegSpawnManagerScript.pegSpawns.Count);
+        
 
-        currentSpawn = pegSpawnManagerScript.pegSpawns[randomIndex].position;
-
-        Instantiate(pegPrefab, currentSpawn, Quaternion.identity);
-
-        pegSpawns.RemoveAt(randomIndex);
-
-        Debug.Log("all pegs spawned");
-  
     }
 
+    void SpawnPegsLoop()
+    {
+        if (!hasPeg)
+        {
+            for (int i = 0; i < pegSpawns.Count; i++)
+            {
+                currentSpawn = pegSpawns[i].position;
+                Instantiate(pegPrefab, currentSpawn, Quaternion.identity);
+
+                hasPeg = true;
+            }
+        }
+        else
+        {
+            Destroy(pegPrefab);
+            hasPeg = false;
+            return; 
+        }
+    }
 }
 
 
