@@ -10,8 +10,6 @@ public class PegSpawnManager : MonoBehaviour
     public List<Transform> pegSpawns;  // FIX, turn ARRAY into a LIST
     [SerializeField] GameObject pegPrefab;
     private Vector2 currentSpawn;
-
-    private int firstIndex;
     public bool hasPeg = false;
 
 
