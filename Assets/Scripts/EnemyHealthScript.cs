@@ -23,6 +23,9 @@ public class EnemyHealthScript : MonoBehaviour
     void Update() // Update is called once per frame
     {
         enemyHealthTxt.text = $"{enemyHealthPoints}";
+
+
+        
     }
 
         //void DamageDealt()

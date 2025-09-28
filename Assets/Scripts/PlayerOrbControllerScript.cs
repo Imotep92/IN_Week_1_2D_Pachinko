@@ -13,6 +13,7 @@ public class PlayerOrbController : MonoBehaviour
     public static GamePanelManager gamePanelManagerScript;
     [HideInInspector] public PlayerStatesList pState;
     public static PlayerSpawnerScript spawnerScript;
+    public static EnemyHealthScript EnemyHealthScript;
 
 
     [Header("Player position variables")]
@@ -37,6 +38,7 @@ public class PlayerOrbController : MonoBehaviour
         pState = GetComponent<PlayerStatesList>();
         playerOrbRb = GetComponent<Rigidbody2D>();
         gamePanelManagerScript = GameObject.Find("Game_Panel").GetComponent<GamePanelManager>();
+        EnemyHealthScript = GameObject.Find("Dragon_Health").GetComponent<EnemyHealthScript>();
     }
 
     void Update() // Update is called once per frame
@@ -58,6 +60,10 @@ public class PlayerOrbController : MonoBehaviour
         if (Endzone.gameObject.CompareTag("You_Win_Tag"))
         {
             Destroy(gameObject);
+
+            // enemy health script reference for damage dealt
+
+            // game panel script refrence for score to reset
         }
     }
 }

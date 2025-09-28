@@ -33,5 +33,10 @@ public class GamePanelManager : MonoBehaviour
     void Update() // Update is called once per frame
     {
         scoreTxt.text = $"Score: {Score}";
+        
+        // take equivalent amount away from enemyhealth script
+
+        // reset to zero upon player orb script upon destruction
+
     }
 }
