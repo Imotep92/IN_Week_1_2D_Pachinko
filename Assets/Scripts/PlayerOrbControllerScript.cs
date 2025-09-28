@@ -10,19 +10,15 @@ public class PlayerOrbController : MonoBehaviour
     [Header("Scripts")]
     public static GameManager gameManagerScript;
     public static PlayerOrbController playerOrbScript;
+    public static GamePanelManager gamePanelManagerScript;
     [HideInInspector] public PlayerStatesList pState;
     public static PlayerSpawnerScript spawnerScript;
 
 
     [Header("Player position variables")]
-    public Rigidbody2D playerOrbRb; // Access to player orb
+    public Rigidbody2D playerOrbRb; 
     public GameObject playerOrbPrefab;
-    private float speed = 1f; // Speed of falling player orb
-
-    [Header("Point Values")]
-
-    public int orbScore;
-    
+    private float speed = 1f; 
 
     public void Awake()
     {
@@ -36,40 +32,30 @@ public class PlayerOrbController : MonoBehaviour
         }
     }
 
-    void Start()
+    void Start() // Start is called once before the first execution of Update after the MonoBehaviour is created
     {
         pState = GetComponent<PlayerStatesList>();
         playerOrbRb = GetComponent<Rigidbody2D>();
+        gamePanelManagerScript = GameObject.Find("Game_Panel").GetComponent<GamePanelManager>();
     }
 
-    void Update()
+    void Update() // Update is called once per frame
     {
         playerOrbRb.AddForce(Vector2.right * Input.GetAxisRaw("Horizontal") * speed);
-
     }
 
-
-    public void PlayerScoreAccumulation()
+    void OnCollisionEnter2D(Collision2D pointPeg)
     {
-        // score start at 0 upon instantiation
-        // each peg hit adds +1 point to score
-        // cross endzone to save new score value
-        // return new score value to enemyHealthScript 
-        // deduct equal ammount of points from enemyhealthScript
-        // reset Score valu to 0
-        // repeat
-        
-
-    }
-
-    void OnTriggerEnter2D(Collider2D other)
-    {
-        if (other.gameObject.CompareTag("You_Win_Tag"))
+        if (pointPeg.gameObject.CompareTag("Peg"))
         {
-            Destroy(gameObject);
+            gamePanelManagerScript.Score++;
+            Debug.Log("+ 1");
         }
-
-        if (other.gameObject.CompareTag("Game_Over_Flame"))
+    }
+        
+    void OnTriggerEnter2D(Collider2D Endzone)
+    {
+        if (Endzone.gameObject.CompareTag("You_Win_Tag"))
         {
             Destroy(gameObject);
         }

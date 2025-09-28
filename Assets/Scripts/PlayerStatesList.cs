@@ -8,7 +8,4 @@ public class PlayerStatesList : MonoBehaviour
     public bool inPlay = false;
     public bool isDestroyed = false;
     public bool isDead = false;
-
-    
-
 }
