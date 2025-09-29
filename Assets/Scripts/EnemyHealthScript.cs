@@ -5,6 +5,8 @@ public class EnemyHealthScript : MonoBehaviour
 {
     [Header("Scripts")]
     public static PlayerOrbController playerController;
+    public static GamePanelManager gamePanelManagerScript;
+    public static PlayerOrbController playerOrbScript;
 
 
     [Header("Enemy health variables")]
@@ -15,23 +17,26 @@ public class EnemyHealthScript : MonoBehaviour
 
     public int maxEnemyHealthPoints = 100;
 
+    public int damageScore;
+
     void Start() // Start is called once before the first execution of Update after the MonoBehaviour is created
     {
         enemyHealthPoints = maxEnemyHealthPoints;
+        gamePanelManagerScript = GameObject.Find("Game_Panel").GetComponent<GamePanelManager>();
+
     }
 
     void Update() // Update is called once per frame
     {
         enemyHealthTxt.text = $"{enemyHealthPoints}";
-
-
-        
     }
 
-        //void DamageDealt()
-        //{
+    //void DamageDealt()
+    //{
+        
+        // damageScore = gamePanelManagerScript.Score;
         // enemy healthpoint int - score int
-        //}
+    //}
 
     //  #region Stamina bar variables
     // public Image staminaBar;

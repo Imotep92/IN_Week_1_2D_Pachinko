@@ -55,15 +55,12 @@ public class PlayerOrbController : MonoBehaviour
         }
     }
         
-    void OnTriggerEnter2D(Collider2D Endzone)
+    void OnTriggerEnter2D(Collider2D Endzone) //resolve attack method
     {
         if (Endzone.gameObject.CompareTag("You_Win_Tag"))
         {
             Destroy(gameObject);
-
-            // enemy health script reference for damage dealt
-
-            // game panel script refrence for score to reset
+            gamePanelManagerScript.Score = default;
         }
     }
 }
