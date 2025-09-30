@@ -13,11 +13,7 @@ public class EnemyHealthScript : MonoBehaviour
 
     public TMP_Text enemyHealthTxt;
 
-    public int enemyHealthPoints;
-
-    public int maxEnemyHealthPoints = 100;
-
-    public int damageScore;
+    public int enemyHealthPoints, maxEnemyHealthPoints = 100;
 
     void Start() // Start is called once before the first execution of Update after the MonoBehaviour is created
     {
@@ -29,15 +25,12 @@ public class EnemyHealthScript : MonoBehaviour
     void Update() // Update is called once per frame
     {
         enemyHealthTxt.text = $"{enemyHealthPoints}";
+
+        if (enemyHealthPoints > 0)
+        {
+            enemyHealthTxt.text = $"{enemyHealthPoints - gamePanelManagerScript.Score}";
+        }
     }
-
-    //void DamageDealt()
-    //{
-        
-        // damageScore = gamePanelManagerScript.Score;
-        // enemy healthpoint int - score int
-    //}
-
     //  #region Stamina bar variables
     // public Image staminaBar;
     // public float stamina, maxStamina;

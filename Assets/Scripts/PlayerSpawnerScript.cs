@@ -25,10 +25,8 @@ public class PlayerSpawnerScript : MonoBehaviour
     {
         
         if (Input.GetKeyDown(KeyCode.Space))
-        {
-            
+        { 
             Instantiate(playerOrbPrefab, transform.position, Quaternion.identity);
-
             Debug.Log("space is pressed");
         }
     }

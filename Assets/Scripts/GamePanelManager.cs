@@ -11,9 +11,6 @@ public class GamePanelManager : MonoBehaviour
     public TMP_Text scoreTxt;
     public int Score;
 
-    public int damage;
-
-
     public void Awake()
     {
         if (gamePanelManagerScript != null && gamePanelManagerScript != this)
@@ -35,17 +32,5 @@ public class GamePanelManager : MonoBehaviour
     void Update() // Update is called once per frame
     {
         scoreTxt.text = $"Score: {Score}";
-
-        // take equivalent amount away from enemyhealth script
-
-        // reset to zero upon player orb script upon destruction
     }
-
-
-    // int DealDamage(int damage)
-    // {
-    //     scoreTxt.text = $"Score: {Score}";
-
-    //     Score = damage;
-    // }
 }
