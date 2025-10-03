@@ -4,6 +4,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine.UI;
+using System.Runtime.InteropServices.WindowsRuntime;
 
 public class PlayerOrbController : MonoBehaviour
 {
@@ -17,9 +18,14 @@ public class PlayerOrbController : MonoBehaviour
 
 
     [Header("Player position variables")]
-    public Rigidbody2D playerOrbRb; 
+    public Rigidbody2D playerOrbRb;
     public GameObject playerOrbPrefab;
-    private float speed = 1f; 
+    private float speed = 1f;
+
+    public int enemyDamage;
+
+
+
 
     public void Awake()
     {
@@ -35,10 +41,10 @@ public class PlayerOrbController : MonoBehaviour
 
     void Start() // Start is called once before the first execution of Update after the MonoBehaviour is created
     {
-        pState = GetComponent<PlayerStatesList>();
-        playerOrbRb = GetComponent<Rigidbody2D>();
-        gamePanelManagerScript = GameObject.Find("Game_Panel").GetComponent<GamePanelManager>();
-        EnemyHealthScript = GameObject.Find("Dragon_Health").GetComponent<EnemyHealthScript>();
+        CallingComponents();
+
+        pState.inPlay = true;
+        gamePanelManagerScript.enemyHit = false;
     }
 
     void Update() // Update is called once per frame
@@ -54,13 +60,31 @@ public class PlayerOrbController : MonoBehaviour
             Debug.Log("+ 1");
         }
     }
-        
+
     void OnTriggerEnter2D(Collider2D Endzone) //resolve attack method
     {
         if (Endzone.gameObject.CompareTag("You_Win_Tag"))
         {
+            gamePanelManagerScript.enemyHit = true;
+            // enemyDamage = gamePanelManagerScript.Score++;
+
             Destroy(gameObject);
-            gamePanelManagerScript.Score = default;
+            pState.inPlay = false;
+            //gamePanelManagerScript.Score = default;
         }
     }
+
+    void CallingComponents()
+    {
+        pState = GetComponent<PlayerStatesList>();
+        playerOrbRb = GetComponent<Rigidbody2D>();
+        gamePanelManagerScript = GameObject.Find("Game_Panel").GetComponent<GamePanelManager>();
+        EnemyHealthScript = GameObject.Find("Dragon_Health").GetComponent<EnemyHealthScript>();
+    }
+
+
+    // public bool EnemyHit()
+    // {
+    //     return true;
+    // }
 }

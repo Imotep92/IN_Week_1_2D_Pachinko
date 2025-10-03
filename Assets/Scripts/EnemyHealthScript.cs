@@ -4,9 +4,8 @@ using TMPro;
 public class EnemyHealthScript : MonoBehaviour
 {
     [Header("Scripts")]
-    public static PlayerOrbController playerController;
     public static GamePanelManager gamePanelManagerScript;
-    public static PlayerOrbController playerOrbScript;
+   
 
 
     [Header("Enemy health variables")]
@@ -18,18 +17,24 @@ public class EnemyHealthScript : MonoBehaviour
     void Start() // Start is called once before the first execution of Update after the MonoBehaviour is created
     {
         enemyHealthPoints = maxEnemyHealthPoints;
-        gamePanelManagerScript = GameObject.Find("Game_Panel").GetComponent<GamePanelManager>();
 
+        enemyHealthTxt.text = $"{enemyHealthPoints}";
+        gamePanelManagerScript = GameObject.Find("Game_Panel").GetComponent<GamePanelManager>();
     }
 
     void Update() // Update is called once per frame
     {
-        enemyHealthTxt.text = $"{enemyHealthPoints}";
+        //enemyHealthTxt.text = $"{enemyHealthPoints}";
 
         if (enemyHealthPoints > 0)
-        {
-            enemyHealthTxt.text = $"{enemyHealthPoints - gamePanelManagerScript.Score}";
-        }
+            {
+              
+            }
+
+        // if (enemyHealthPoints > 0)
+        // {
+        //     enemyHealthTxt.text = $"{enemyHealthPoints - gamePanelManagerScript.Score}";
+        // }
     }
     //  #region Stamina bar variables
     // public Image staminaBar;
