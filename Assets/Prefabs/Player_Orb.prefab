@@ -166,12 +166,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 115d43b12cae549b1b1bfb1d941f77d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isAlive: 1
-  isKinematic: 1
-  isMoving: 0
   inPlay: 0
-  isDestroyed: 0
-  isDead: 0
 --- !u!114 &5628400521812241517
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -185,5 +180,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pState: {fileID: 0}
-  playerOrbRb: {fileID: 0}
-  playerOrbPrefab: {fileID: 0}
+  playerOrbPrefab: {fileID: 3876694006655284685}

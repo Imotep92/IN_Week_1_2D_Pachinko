@@ -7,10 +7,10 @@ public class PegSpawnManager : MonoBehaviour
     public static PegSpawnManager pegSpawnManagerScript;
 
 
-    public List<Transform> pegSpawns;  // FIX, turn ARRAY into a LIST
+    public List<Transform> pegSpawns; 
     [SerializeField] GameObject pegPrefab;
     private Vector2 currentSpawn;
-    public bool hasPeg = false;
+    private bool hasPeg = false;
 
 
 
@@ -34,7 +34,6 @@ public class PegSpawnManager : MonoBehaviour
     void FixedUpdate()  
     {
         
-
     }
 
     void SpawnPegsLoop()

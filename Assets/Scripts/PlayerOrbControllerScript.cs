@@ -1,10 +1,4 @@
 using UnityEngine;
-using UnityEngine.SceneManagement;
-using System.Collections;
-using System.Collections.Generic;
-using TMPro;
-using UnityEngine.UI;
-using System.Runtime.InteropServices.WindowsRuntime;
 
 public class PlayerOrbController : MonoBehaviour
 {
@@ -17,15 +11,10 @@ public class PlayerOrbController : MonoBehaviour
     public static EnemyHealthScript EnemyHealthScript;
 
 
-    [Header("Player position variables")]
-    public Rigidbody2D playerOrbRb;
-    public GameObject playerOrbPrefab;
+    [Header("Player variables")]
+    private Rigidbody2D playerOrbRb;
+    [HideInInspector] public GameObject playerOrbPrefab;
     private float speed = 1f;
-
-    public int enemyDamage;
-
-
-
 
     public void Awake()
     {
@@ -66,11 +55,9 @@ public class PlayerOrbController : MonoBehaviour
         if (Endzone.gameObject.CompareTag("You_Win_Tag"))
         {
             gamePanelManagerScript.enemyHit = true;
-            // enemyDamage = gamePanelManagerScript.Score++;
 
             Destroy(gameObject);
             pState.inPlay = false;
-            //gamePanelManagerScript.Score = default;
         }
     }
 
@@ -81,10 +68,4 @@ public class PlayerOrbController : MonoBehaviour
         gamePanelManagerScript = GameObject.Find("Game_Panel").GetComponent<GamePanelManager>();
         EnemyHealthScript = GameObject.Find("Dragon_Health").GetComponent<EnemyHealthScript>();
     }
-
-
-    // public bool EnemyHit()
-    // {
-    //     return true;
-    // }
 }

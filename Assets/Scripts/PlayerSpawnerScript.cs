@@ -9,7 +9,7 @@ public class PlayerSpawnerScript : MonoBehaviour
     [Header("Player variables")]
     public GameObject playerOrbPrefab;
 
-     public void Awake()
+    public void Awake()
     {
         if (SpawnerScript != null && SpawnerScript != this)
         {
@@ -23,11 +23,15 @@ public class PlayerSpawnerScript : MonoBehaviour
 
     void Update()
     {
-        
         if (Input.GetKeyDown(KeyCode.Space))
-        { 
-            Instantiate(playerOrbPrefab, transform.position, Quaternion.identity);
-            Debug.Log("space is pressed");
+        {
+            SpawnOrb();
         }
+    }
+
+    private void SpawnOrb()
+    {
+        Instantiate(playerOrbPrefab, transform.position, Quaternion.identity);
+        Debug.Log("space is pressed");
     }
 }

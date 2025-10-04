@@ -5,14 +5,13 @@ public class EnemyHealthScript : MonoBehaviour
 {
     [Header("Scripts")]
     public static GamePanelManager gamePanelManagerScript;
-   
-
 
     [Header("Enemy health variables")]
-
-    public TMP_Text enemyHealthTxt;
-
     public int enemyHealthPoints, maxEnemyHealthPoints = 100;
+
+    [Header("Text and Images")]
+    public TMP_Text enemyHealthTxt;
+    // public Image healthBar;
 
     void Start() // Start is called once before the first execution of Update after the MonoBehaviour is created
     {
@@ -24,56 +23,22 @@ public class EnemyHealthScript : MonoBehaviour
 
     void Update() // Update is called once per frame
     {
-        //enemyHealthTxt.text = $"{enemyHealthPoints}";
-
         if (enemyHealthPoints > 0)
-            {
-              
-            }
-
-        // if (enemyHealthPoints > 0)
-        // {
-        //     enemyHealthTxt.text = $"{enemyHealthPoints - gamePanelManagerScript.Score}";
-        // }
+        {
+            DamageDealt();
+        }
     }
-    //  #region Stamina bar variables
-    // public Image staminaBar;
-    // public float stamina, maxStamina;
-    // public float runCost;
-    // public bool running;
 
-    // public float chargeRate;
-    // private Coroutine recharge;
-    // #endregion
+    void DamageDealt()
+    {
+        if (gamePanelManagerScript.enemyHit == true)
+        {
+            enemyHealthTxt.text = $"{enemyHealthPoints -= gamePanelManagerScript.Score}";
 
-    //  #region stamina
+            gamePanelManagerScript.Score = default;
 
-    //         //Stamina drains when player is running
-    //         if (running/* && is moving */)
-    //         {
-    //             stamina -= runCost * Time.deltaTime;
-    //             if (stamina < 0)
-    //             {
-    //                 stamina = 0;
-    //                 moveSpeed /= runMultiplier;
-    //                 running = false;
-    //             }
-    //             staminaBar.fillAmount = stamina / maxStamina;
-
-    //             if (recharge != null) StopCoroutine(recharge);
-    //             recharge = StartCoroutine(RechargeStamina());
-    //         }
-
-    //         #endregion stamina
-
-    //  private IEnumerator RechargeStamina()
-    // {
-    //     yield return new WaitForSeconds(5f);
-
-    //     while (stamina < maxStamina)
-    //     {
-    //         stamina += chargeRate / 5f;
-    //         if (stamina > maxStamina) stamina = maxStamina;
-    //         staminaBar.fillAmount = stamina / maxStamina;
-    //         yield return new WaitForSeconds(.2f);
+            gamePanelManagerScript.enemyHit = false;
+        }
+        // staminaBar.fillAmount = enemyHealthPoints, maxEnemyHealthPoints;
+    }
 }

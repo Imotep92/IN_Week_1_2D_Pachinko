@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class PointPegScript : MonoBehaviour
 {
+    [Header("Point peg variables")]
     [SerializeField] GameObject pegPrefab;
     [SerializeField] int pointValue;
     private Rigidbody2D pegRb;
@@ -18,7 +19,7 @@ public class PointPegScript : MonoBehaviour
       
     }
 
-    void OnCollisionEnter2D(Collision2D playerOrb)
+   virtual public void OnCollisionEnter2D(Collision2D playerOrb)
     {
         if (playerOrb.gameObject.CompareTag("Player"))
         {

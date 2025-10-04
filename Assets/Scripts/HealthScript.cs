@@ -1,6 +1,5 @@
 using UnityEngine;
 using TMPro;
-using UnityEngine.UI;
 
 public class HealthScript : MonoBehaviour
 {
@@ -11,9 +10,7 @@ public class HealthScript : MonoBehaviour
     [Header("Player health variables")]
 
     public TMP_Text healthTxt;
-
     public int healthPoints;
-
     public int maxHealthPoints = 50;
 
 
@@ -38,10 +35,4 @@ public class HealthScript : MonoBehaviour
     {
         healthTxt.text = $"{healthPoints}";
     }
-
-    //void DamageDealt()
-    //{
-    // healthpoint int - score int
-    //}
-
 }

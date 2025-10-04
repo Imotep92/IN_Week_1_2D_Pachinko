@@ -7,13 +7,13 @@ public class LerpingRespawnerScript : MonoBehaviour
 
 
     [Header("Lerping Object variables")]
-    private Rigidbody2D spawnerRb;
+    Rigidbody2D spawnerRb;
     float yPosition = -0.5f;
     float minX = -8f;
     float maxX = 13f;
     static float t = 0.0f;
 
-    public void Awake()
+    void Awake()
     {
         if (lerpingRespawnerScript != null && lerpingRespawnerScript != this)
         {
@@ -25,12 +25,12 @@ public class LerpingRespawnerScript : MonoBehaviour
         }
     }
 
-    public void Start()
+    void Start()
     {
         spawnerRb = GetComponent<Rigidbody2D>();
     }
 
-    public void Update()
+    void Update()
     {
         transform.position = new Vector2(Mathf.Lerp(minX, maxX, t), yPosition);
         t += 0.5f * Time.deltaTime;
