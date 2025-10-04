@@ -2354,9 +2354,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1b6d193246245422f9d68dc73179eba6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyHealthTxt: {fileID: 1244218274}
   enemyHealthPoints: 0
   maxEnemyHealthPoints: 100
+  enemyHealthTxt: {fileID: 1244218274}
 --- !u!1 &553240931
 GameObject:
   m_ObjectHideFlags: 0
@@ -3205,8 +3205,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 877c340e0dedb40e596c6bc2d2d91900, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scoreTxt: {fileID: 873176410}
   Score: 0
+  enemyHit: 0
+  scoreTxt: {fileID: 873176410}
 --- !u!1 &726409685
 GameObject:
   m_ObjectHideFlags: 0
@@ -4247,7 +4248,6 @@ MonoBehaviour:
   - {fileID: 2051851502}
   - {fileID: 1851773418}
   pegPrefab: {fileID: 5944594100717378979, guid: 7d3bc443643334e5c9bfee5c0e30fca8, type: 3}
-  hasPeg: 0
 --- !u!4 &958434773
 Transform:
   m_ObjectHideFlags: 0
