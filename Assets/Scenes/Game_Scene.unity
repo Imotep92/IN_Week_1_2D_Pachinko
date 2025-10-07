@@ -4179,7 +4179,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 958434773}
-  - component: {fileID: 958434772}
+  - component: {fileID: 958434774}
   m_Layer: 0
   m_Name: Peg_Spawn_Manager
   m_TagString: Untagged
@@ -4187,7 +4187,22 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &958434772
+--- !u!4 &958434773
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 958434771}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -8.29, y: -0.82500076, z: 0.060212694}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 1
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &958434774
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -4202,34 +4217,34 @@ MonoBehaviour:
   pegSpawns:
   - {fileID: 1187272951}
   - {fileID: 35925750}
-  - {fileID: 579560008}
-  - {fileID: 1829971879}
-  - {fileID: 270661281}
   - {fileID: 1205608313}
-  - {fileID: 1266078509}
-  - {fileID: 2002306896}
   - {fileID: 155354572}
-  - {fileID: 2085847335}
-  - {fileID: 684886017}
-  - {fileID: 496791324}
   - {fileID: 2007495179}
   - {fileID: 435913352}
-  - {fileID: 2076136092}
-  - {fileID: 1437320711}
-  - {fileID: 553240932}
   - {fileID: 367978771}
-  - {fileID: 668889446}
-  - {fileID: 608315192}
   - {fileID: 808957792}
-  - {fileID: 1883830202}
-  - {fileID: 943158552}
-  - {fileID: 2107457434}
   - {fileID: 1506122839}
   - {fileID: 908095581}
-  - {fileID: 1684355863}
+  - {fileID: 1771528215}
+  - {fileID: 1829971879}
+  - {fileID: 270661281}
+  - {fileID: 2085847335}
+  - {fileID: 684886017}
+  - {fileID: 1437320711}
+  - {fileID: 553240932}
+  - {fileID: 1883830202}
+  - {fileID: 943158552}
   - {fileID: 735400428}
   - {fileID: 923467839}
-  - {fileID: 1771528215}
+  - {fileID: 579560008}
+  - {fileID: 1266078509}
+  - {fileID: 2002306896}
+  - {fileID: 496791324}
+  - {fileID: 2076136092}
+  - {fileID: 668889446}
+  - {fileID: 608315192}
+  - {fileID: 2107457434}
+  - {fileID: 1684355863}
   - {fileID: 1076596018}
   - {fileID: 41649974}
   - {fileID: 1031557504}
@@ -4248,21 +4263,6 @@ MonoBehaviour:
   - {fileID: 2051851502}
   - {fileID: 1851773418}
   pegPrefab: {fileID: 5944594100717378979, guid: 7d3bc443643334e5c9bfee5c0e30fca8, type: 3}
---- !u!4 &958434773
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 958434771}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -8.29, y: -0.82500076, z: 0.060212694}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 1
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &991543164
 GameObject:
   m_ObjectHideFlags: 0
