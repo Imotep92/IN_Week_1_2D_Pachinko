@@ -10,10 +10,8 @@ public class HealthScript : MonoBehaviour
     [Header("Player health variables")]
 
     public TMP_Text healthTxt;
-    public int healthPoints;
-    public int maxHealthPoints = 50;
-
-
+    public int healthPoints, maxHealthPoints = 20;
+    
     void Awake()
     {
         if (healthScript != null && healthScript != this)

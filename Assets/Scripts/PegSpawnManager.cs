@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class PegSpawnManager : MonoBehaviour
@@ -11,6 +12,8 @@ public class PegSpawnManager : MonoBehaviour
     [SerializeField] GameObject pegPrefab;
     private Vector2 currentSpawn;
     private bool hasPeg = false;
+
+    [SerializeField] int pegCounter;
 
 
 
@@ -31,9 +34,9 @@ public class PegSpawnManager : MonoBehaviour
         SpawnPegsLoop();
     }
 
-    void FixedUpdate()  
+    void Update()  
     {
-        
+       // pegCounter = pegCounter++;
     }
 
     void SpawnPegsLoop()
@@ -44,7 +47,7 @@ public class PegSpawnManager : MonoBehaviour
             {
                 currentSpawn = pegSpawns[i].position;
                 Instantiate(pegPrefab, currentSpawn, Quaternion.identity);
-
+                pegCounter++;
                 hasPeg = true;
             }
         }

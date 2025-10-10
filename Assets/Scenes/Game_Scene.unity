@@ -2355,8 +2355,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyHealthPoints: 0
-  maxEnemyHealthPoints: 100
+  maxEnemyHealthPoints: 50
   enemyHealthTxt: {fileID: 1244218274}
+  healthBar: {fileID: 1903538902}
 --- !u!1 &553240931
 GameObject:
   m_ObjectHideFlags: 0
@@ -4263,6 +4264,7 @@ MonoBehaviour:
   - {fileID: 2051851502}
   - {fileID: 1851773418}
   pegPrefab: {fileID: 5944594100717378979, guid: 7d3bc443643334e5c9bfee5c0e30fca8, type: 3}
+  pegCounter: 0
 --- !u!1 &991543164
 GameObject:
   m_ObjectHideFlags: 0
@@ -6078,7 +6080,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   healthTxt: {fileID: 1924601808}
   healthPoints: 0
-  maxHealthPoints: 50
+  maxHealthPoints: 20
 --- !u!1 &1684193717
 GameObject:
   m_ObjectHideFlags: 0

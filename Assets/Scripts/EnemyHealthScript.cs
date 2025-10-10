@@ -1,5 +1,6 @@
 using UnityEngine;
 using TMPro;
+using UnityEngine.UI;
 
 public class EnemyHealthScript : MonoBehaviour
 {
@@ -7,11 +8,11 @@ public class EnemyHealthScript : MonoBehaviour
     public static GamePanelManager gamePanelManagerScript;
 
     [Header("Enemy health variables")]
-    public int enemyHealthPoints, maxEnemyHealthPoints = 100;
+    public int enemyHealthPoints, maxEnemyHealthPoints = 50;
 
-    [Header("Text and Images")]
+    [Header("UI Elements")]
     public TMP_Text enemyHealthTxt;
-    // public Image healthBar;
+    public Image healthBar;
 
     void Start() // Start is called once before the first execution of Update after the MonoBehaviour is created
     {
@@ -39,6 +40,8 @@ public class EnemyHealthScript : MonoBehaviour
 
             gamePanelManagerScript.enemyHit = false;
         }
-        // staminaBar.fillAmount = enemyHealthPoints, maxEnemyHealthPoints;
+
+        // healthBar.fillAmount = enemyHealthPoints; 
+        // maxEnemyHealthPoints;
     }
 }
